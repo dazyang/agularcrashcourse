@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
+
+
 @NgModule({
   // bring in other Angular module that the module will need
   imports: [
@@ -15,5 +17,5 @@ import { AppComponent } from './app.component';
   bootstrap: [
     AppComponent
   ],
-}) // this will apply to the class, field or methods that comes before
+}) // the decorator NgModule will apply to the class, field or methods that comes before
 export class AppModule {}
