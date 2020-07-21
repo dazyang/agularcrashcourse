@@ -15,8 +15,5 @@ export class AppComponent {
     watchedOn: 1294166565384,
     isFavorite: false
   };
-
-  onMediaItemDelete(mediaItem) {
-
-  }
+  onMediaItemDelete(mediaItem) {}
 }
