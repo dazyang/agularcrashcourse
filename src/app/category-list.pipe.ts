@@ -6,6 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   // pure helps to define whether it is stateless or stateful. Pure means that the pipe will take in data or return data without any side effects. Pipe are stateless by default, so this metadata is optional.
   // pure: true
 })
+// PipeTransform is an interface that is implemented by pipes in order to perform a transformation.
 export class CategoryListPipe implements PipeTransform {
   transform(mediaItems) {
     // set up an local array to store unique category names found
