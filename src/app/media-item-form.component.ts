@@ -13,16 +13,13 @@ export class MediaItemFormComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      medium: this.formBuilder.control("Movies"),
-      name: this.formBuilder.control(
-        "",
-        Validators.compose([
-          Validators.required,
-          Validators.pattern("[\\w\\-\\s\\/]+"),
-        ])
-      ),
-      category: this.formBuilder.control(""),
-      year: this.formBuilder.control("", this.yearValidator),
+      medium: this.formBuilder.control('Movies'),
+      name: this.formBuilder.control('', Validators.compose([
+        Validators.required,
+        Validators.pattern('[\\w\\-\\s\\/]+')
+      ])),
+      category: this.formBuilder.control(''),
+      year: this.formBuilder.control('', this.yearValidator),
     });
   }
 
