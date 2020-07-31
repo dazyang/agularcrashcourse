@@ -9,6 +9,10 @@ import { CategoryListPipe } from './category-list.pipe';
 import { MediaItemFormComponent } from './media-item-form.component';
 import { MediaItemService } from './media-item.service'
 
+ const lookupLists = {
+   mediums: ['Movies', 'Series']
+ }
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -27,7 +31,7 @@ import { MediaItemService } from './media-item.service'
   ],
   // this will tell angular to instantiate an instance of the service for use by things in this ngModule and any ngModules down the tree
   providers: [
-    MediaItemService
+    { provide: 'lookupListToken', useValue: lookupLists }
   ]
 })
 export class AppModule {}
