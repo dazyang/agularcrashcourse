@@ -7,7 +7,7 @@ import { MediaItemListComponent } from './media-item-list.component';
 import { FavoriteDirective } from './favorite.directive';
 import { CategoryListPipe } from './category-list.pipe';
 import { MediaItemFormComponent } from './media-item-form.component';
-import { MediaItemService } from './media-item.service'
+// import { MediaItemService } from './media-item.service'
 
  const lookupLists = {
    mediums: ['Movies', 'Series']
