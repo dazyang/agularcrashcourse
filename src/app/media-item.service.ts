@@ -5,85 +5,85 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
+
 export class MediaItemService {
-  constructor(private http: HttpClient) {}
+         mediaItems = [
+           {
+             id: 1,
+             name: "Firebug",
+             medium: "Series",
+             category: "Science Fiction",
+             year: 2010,
+             watchedOn: 1294166565384,
+             isFavorite: false,
+           },
+           {
+             id: 2,
+             name: "The Small Tall",
+             medium: "Movies",
+             category: "Comedy",
+             year: 2015,
+             watchedOn: null,
+             isFavorite: true,
+           },
+           {
+             id: 3,
+             name: "The Redemption",
+             medium: "Movies",
+             category: "Action",
+             year: 2016,
+             watchedOn: null,
+             isFavorite: false,
+           },
+           {
+             id: 4,
+             name: "Hoopers",
+             medium: "Series",
+             category: "Drama",
+             year: null,
+             watchedOn: null,
+             isFavorite: true,
+           },
+           {
+             id: 5,
+             name: "Happy Joe: Cheery Road",
+             medium: "Movies",
+             category: "Action",
+             year: 2015,
+             watchedOn: 1457166565384,
+             isFavorite: false,
+           },
+         ];
 
-  mediaItems = [
-    {
-      id: 1,
-      name: 'Firebug',
-      medium: 'Series',
-      category: 'Science Fiction',
-      year: 2010,
-      watchedOn: 1294166565384,
-      isFavorite: false
-    },
-    {
-      id: 2,
-      name: 'The Small Tall',
-      medium: 'Movies',
-      category: 'Comedy',
-      year: 2015,
-      watchedOn: null,
-      isFavorite: true
-    }, {
-      id: 3,
-      name: 'The Redemption',
-      medium: 'Movies',
-      category: 'Action',
-      year: 2016,
-      watchedOn: null,
-      isFavorite: false
-    }, {
-      id: 4,
-      name: 'Hoopers',
-      medium: 'Series',
-      category: 'Drama',
-      year: null,
-      watchedOn: null,
-      isFavorite: true
-    }, {
-      id: 5,
-      name: 'Happy Joe: Cheery Road',
-      medium: 'Movies',
-      category: 'Action',
-      year: 2015,
-      watchedOn: 1457166565384,
-      isFavorite: false
-    }
-  ];
+         constructor(private http: HttpClient) {}
 
-  get() {
-    return this.http.get<MediaItemsResponse>('mediaitems')
-      .pipe(
-        map((response: MediaItemsResponse) => {
-          return response.mediaItems;
-        })
-      );
-  }
+         get() {
+          //  the http get method returns an Observable of http responses. The get method support <generics>, a TS syntax to tell the method what type of object it will return at the point where you wrtie your method call
+           return this.http.get<MediaItemResponse>('mediaitems')
+          //  map method expects a function as its argument
+           .pipe(map(response => { return response.mediaItems; }));
+         }
+        //  add() can take in a media item and push it onto media items array
+         add(mediaItem) {
+          this.mediaItems.push(mediaItem);
+         }
+         delete(mediaItem) {
+          const index = this.mediaItems.indexOf(mediaItem);
+          if (index >= 0) {
+            this.mediaItems.splice(index, 1)
+          }
+         }
+       }
 
-  add(mediaItem) {
-    this.mediaItems.push(mediaItem);
-  }
+       interface MediaItem {
+         id: number;
+         name: string;
+         medium: string;
+         category: string;
+         year: number;
+         isFavorite: boolean;
+       }
 
-  delete(mediaItem) {
-    const index = this.mediaItems.indexOf(mediaItem);
-    if (index >= 0) {
-      this.mediaItems.splice(index, 1);
-    }
-  }
-}
-
-interface MediaItemsResponse {
-  mediaItems: MediaItem[];
-}
-
-export interface MediaItem {
-  id: number;
-  name: string;
-  medium: string;
-  category: string;
-  year: number;
-  watchedOn: number;
-  isFavorite: boolean;
-}
+       interface MediaItemResponse {
+         mediaItems: MediaItem[];
+       }
