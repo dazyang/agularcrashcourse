@@ -29,6 +29,10 @@ import { lookupListToken, lookupLists } from './providers';
   ],
   bootstrap: [
     AppComponent
+  ],
+  // this will tell angular to instantiate an instance of the service for use by things in this ngModule and any ngModules down the tree
+  providers: [
+    { provide: 'lookupListToken', useValue: lookupLists }
   ]
 })
 export class AppModule {}
