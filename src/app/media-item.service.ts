@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -52,9 +54,14 @@ export class MediaItemService {
              isFavorite: false,
            },
          ];
-        //  get() returns the media items
+
+         constructor(private http: HttpClient) {}
+
          get() {
-           return this.mediaItems;
+          //  the http get method returns an Observable of http responses. The get method support <generics>, a TS syntax to tell the method what type of object it will return at the point where you wrtie your method call
+           return this.http.get<MediaItemResponse>('mediaitems')
+          //  map method expects a function as its argument
+           .pipe(map(response => { return response.mediaItems; }));
          }
         //  add() can take in a media item and push it onto media items array
          add(mediaItem) {
@@ -66,4 +73,17 @@ export class MediaItemService {
             this.mediaItems.splice(index, 1)
           }
          }
+       }
+
+       interface MediaItem {
+         id: number;
+         name: string;
+         medium: string;
+         category: string;
+         year: number;
+         isFavorite: boolean;
+       }
+
+       interface MediaItemResponse {
+         mediaItems: MediaItem[];
        }
