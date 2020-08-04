@@ -10,7 +10,7 @@ import { throwError } from 'rxjs';
 export class MediaItemService {
   constructor(private http: HttpClient) {}
 
-  get(medium) {
+  get(medium: string) {
     const getOptions = {
       params: { medium }
     };
@@ -38,16 +38,16 @@ export class MediaItemService {
   }
 }
 
-
-interface MediaItem {
-id: number;
-name: string;
-medium: string;
-category: string;
-year: number;
-isFavorite: boolean;
+interface MediaItemsResponse {
+  mediaItems: MediaItem[];
 }
 
-interface MediaItemsResponse {
-mediaItems: MediaItem[];
+export interface MediaItem {
+  id: number;
+  name: string;
+  medium: string;
+  category: string;
+  year: number;
+  watchedOn: number;
+  isFavorite: boolean;
 }
