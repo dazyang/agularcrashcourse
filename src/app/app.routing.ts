@@ -3,7 +3,9 @@ import { MediaItemListComponent } from './media-item-list.component';
 
 const appRoutes: Routes = [
   { path: ':medium', component: MediaItemListComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'all' }
-];
+  { path: '', redirectTo: 'all', pathMatch: 'full'}
+]; //pathMatch tells the router that the path property provided will represent the full match, not just a part of it.
 
-export const routing = RouterModule.forRoot(appRoutes);
+
+// forRoot expects an array of route objects, it'll takes these routes and set up the router for us
+export const routing = RouterModule.forRoot(appRoutes)

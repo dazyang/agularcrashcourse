@@ -25,12 +25,13 @@ import { NewItemModule } from './new-item/new-item.module';
     FavoriteDirective,
     CategoryListPipe
   ],
+  // this will tell angular to instantiate an instance of the service for use by things in this ngModule and any ngModules down the tree
   providers: [
     { provide: lookupListToken, useValue: lookupLists },
     { provide: HttpXhrBackend, useClass: MockXHRBackend }
   ],
   bootstrap: [
     AppComponent
-  ]
+  ],
 })
 export class AppModule {}
