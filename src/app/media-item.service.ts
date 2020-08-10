@@ -6,6 +6,7 @@ import { throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class MediaItemService {
   constructor(private http: HttpClient) {}
 
@@ -13,32 +14,27 @@ export class MediaItemService {
     const getOptions = {
       params: { medium }
     };
+  //  the http get method returns an Observable of http responses. The get method support <generics>, a TS syntax to tell the method what type of object it will return at the point where you wrtie your method call
     return this.http.get<MediaItemsResponse>('mediaitems', getOptions)
-      .pipe(
-        map((response: MediaItemsResponse) => {
-          return response.mediaItems;
-        }),
-        catchError(this.handleError)
-      );
-  }
-
-  add(mediaItem: MediaItem) {
-    return this.http.post('mediaitems', mediaItem)
-      .pipe(
-        catchError(this.handleError)
-      );
-  }
-
-  delete(mediaItem: MediaItem) {
-    return this.http.delete(`mediaitems/${mediaItem.id}`)
-    .pipe(
+  //  map method expects a function as its argument
+    .pipe(map((response: MediaItemsResponse) => {
+      return response.mediaItems;
+    }),
       catchError(this.handleError)
     );
   }
-
+  //  add() can take in a media item and push it onto media items array
+  add(mediaItem) {
+    return this.http.post('mediaitems', mediaItem)
+      .pipe(catchError(this.handleError))
+  }
+  delete(mediaItem) {
+    return this.http.delete(`mediaitems/${mediaItem.id}`)
+      .pipe(catchError(this.handleError))
+  }
   private handleError(error: HttpErrorResponse) {
-    console.error(error.message);
-    return throwError('A data error occurred, please try again.');
+    console.log(error.message);
+    return throwError('Try again')
   }
 }
 
