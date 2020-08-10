@@ -9,5 +9,5 @@ const appRoutes: Routes = [
 ]; //pathMatch tells the router that the path property provided will represent the full match, not just a part of it.
 
 
-// forRoot expects an array of route objects, it'll takes these routes and set up the router for us 
+// forRoot expects an array of route objects, it'll takes these routes and set up the router for us
 export const routing = RouterModule.forRoot(appRoutes)

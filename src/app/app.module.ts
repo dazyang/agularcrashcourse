@@ -10,7 +10,7 @@ import { CategoryListPipe } from './category-list.pipe';
 import { MediaItemFormComponent } from './media-item-form.component';
 import { lookupListToken, lookupLists } from './providers';
 import { MockXHRBackend } from './mock-xhr-backend';
-import { routing} from './app.routing'
+import { routing } from './app.routing';
 
 @NgModule({
   imports: [
