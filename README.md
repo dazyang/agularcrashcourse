@@ -2,24 +2,26 @@
 
 This is the repository for my course **Angular Essential Training**  
 The full course is available at [LinkedIn Learning](https://www.linkedin.com/learning) and [lynda.com](https://lynda.com).  
-[LinkedIn Learning subscribers: watch here](https://www.linkedin.com/learning/angular-2-essential-training-2)  
-[Lynda.com subscribers: watch here](https://www.lynda.com/AngularJS-tutorials/Angular-2-Essential-Training/540347-2.html)  
+[LinkedIn Learning subscribers: watch here](https://www.linkedin.com/learning/angular-essential-training-2)  
+[Lynda.com subscribers: watch here](https://www.lynda.com/Angular-tutorials/Angular-Essential-Training/5034181-2.html)  
 
 
 ## Course Description
 
-JavaScript frameworks help you code more quickly, by providing special functionality for developing specific types of web projects. Angular was designed by Google to address challenges programmers face building single-page applications. This course introduces you to the essentials of this "superheroic" framework, including declarative templates, two-way data binding, and dependency injection. Justin Schwartzenberger steps through the framework one feature at a time, focusing on the new component-based architecture of Angular. After completing this training, you'll be able to tackle the other project-based courses in our library and create your own Angular app.
+Angular was designed by Google to address challenges programmers face building complex, single-page applications. This JavaScript platform provides a solid core of web functionality, letting you take care of the design and implementation details. In this course, Justin Schwartzenberger introduces you to the essentials of this "superheroic" platform, including powerful features such as two-way data binding, comprehensive routing, and dependency injection. Justin steps through the platform one feature at a time, focusing on the component-based architecture of Angular. Learn what Angular is and what it can do, as Justin builds a full-featured web app from start to finish. After mastering the essentials, you can tackle the other project-based courses in our library and create your own Angular app.
 
 Topics include:
 - What is Angular?
-- Setting up an Angular template
-- Creating a component
-- Displaying data
-- Working with events
-- Using two-way data binding
-- Creating a subcomponent
-- Using the built-in HTTP module
-- Using the built-in router module
+- Working with components
+- Binding events and properties
+- Getting data to components
+- Using directives and pipes
+- Creating Angular forms
+- Validating form data
+- How Angular does dependency injection
+- Making HTTP calls
+- Routing
+- Styling components
 
 ## Instructions
 
@@ -34,6 +36,10 @@ Topics include:
 3. CD to the folder
 
     `cd angular-essential-training`
+
+    and then fetch all of the remote branches for the repository
+    
+    `git fetch --all` 
     
 4. Run the following to install the project dependencies:
 
