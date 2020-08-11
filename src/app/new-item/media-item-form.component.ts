@@ -52,7 +52,8 @@ export class MediaItemFormComponent implements OnInit {
   onSubmit(mediaItem) {
     this.mediaItemService.add(mediaItem)
       .subscribe(() => {
-        this.router.navigate(['/', mediaItem.medium]);
+        // the router.nabigate method expects an link parameters array. A link parameters array contains the parts needed for router navigation.
+        this.router.navigate(['/', mediaItem.medium])
       });
   }
 }
